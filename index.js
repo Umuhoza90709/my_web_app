@@ -1,16 +1,18 @@
-const express = require('express');
-const app = express();
+const http = require('http');
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello from Node.js server on port 3000!');
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+
+  if (req.url === '/about') {
+    res.end('About Page\n');
+  } else {
+    res.end('Hello from Node.js server on port 3000!\n');
+  }
 });
 
-app.get('/about', (req, res) => {
-  res.send('About Page');
-});
-
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
+
 
