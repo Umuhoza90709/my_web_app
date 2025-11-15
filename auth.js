@@ -1,6 +1,6 @@
 def login(user, password):
     if user == "admin" and password == "1234":
-        return "Login successful"
+        return "Login successfuls"
     else:
         return "Login failed"
 
