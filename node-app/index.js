@@ -1,3 +1,4 @@
+cat > index.js << EOL
 const express = require('express');
 const mysql = require('mysql');
 
@@ -6,7 +7,7 @@ const PORT = 3000;
 
 // Connect to MySQL
 const db = mysql.createConnection({
-  host: 'db',       // service name from docker-compose
+  host: 'db',       // Service name from docker-compose
   user: 'root',
   password: 'password',
   database: 'mydb'
@@ -22,10 +23,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(\`Server running on http://localhost:\${PORT}\`);
 });
-
-
-
-
-
+EOL
